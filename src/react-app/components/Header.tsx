@@ -212,26 +212,3 @@ export default function Header() {
     </header>
   );
 }
-
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center gap-3 py-4 text-xl font-semibold text-gray-800 border-b border-gray-100"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <item.icon className="w-6 h-6" />
-                  {item.name}
-                </a>
-              ))}
-            </nav>
-            
-            <div className="p-6">
-              <button className="w-full bg-black text-white py-4 rounded-full font-semibold text-lg">
-                Quero ser motorista
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </header>
-  );
-}
