@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "tsc -b && vite build",
-    "dev": "vite",
+    "dev": "npx vite",
     "lint": "eslint ."
   }
 }
