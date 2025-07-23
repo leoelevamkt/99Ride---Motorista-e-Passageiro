@@ -118,29 +118,3 @@ export default function BlogSection() {
     </AnimatedSection>
   );
 }
-
-                  </div>
-                </div>
-                
-                <h3 className="text-lg font-bold text-black mb-3 leading-tight">
-                  {post.title}
-                </h3>
-                
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {post.description}
-                </p>
-                
-                <button className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors">
-                  Ler mais →
-                </button>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Bottom border decoration */}
-        <div className="border-t border-orange-500 mt-16"></div>
-      </div>
-    </section>
-  );
-}
