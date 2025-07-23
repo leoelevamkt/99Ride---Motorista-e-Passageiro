@@ -1,4 +1,6 @@
 import { ArrowUpRight, Calendar, Tag } from 'lucide-react';
+import LazyImage from './LazyImage';
+import AnimatedSection from './AnimatedSection';
 
 export default function BlogSection() {
   const posts = [
@@ -41,7 +43,8 @@ export default function BlogSection() {
   ];
 
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <AnimatedSection animation="fadeIn">
+      <section className="bg-white py-16 lg:py-24">
       <div className="container mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="text-center mb-16">
@@ -61,30 +64,61 @@ export default function BlogSection() {
         {/* Blog posts grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {posts.map((post) => (
-            <article 
+            <AnimatedSection
               key={post.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              animation="slideUp"
+              delay={post.id * 100}
             >
-              <div className="relative">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm px-3 py-1 rounded-full">
-                  <span className="text-sm font-semibold text-gray-800">{post.category}</span>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <Calendar className="w-4 h-4" />
-                    {post.date}
+              <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group cursor-pointer">
+                <div className="relative overflow-hidden">
+                  <LazyImage 
+                    src={post.image} 
+                    alt={post.title}
+                    className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm px-3 py-1 rounded-full">
+                    <span className="text-sm font-semibold text-gray-800">{post.category}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-orange-500">
-                    <Tag className="w-4 h-4" />
-                    {post.tag}
+                </div>
+              
+                <div className="p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Calendar className="w-4 h-4" />
+                      {post.date}
+                    </div>
+                    <div className="flex items-center gap-2 text-sm text-orange-500">
+                      <Tag className="w-4 h-4" />
+                      {post.tag}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-orange-500 transition-colors">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                    {post.description}
+                  </p>
+                  
+                  <button className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors inline-flex items-center gap-1 group-hover:gap-2">
+                    Ler mais 
+                    <ArrowUpRight className="w-4 h-4 transition-all" />
+                  </button>
+                </div>
+              </article>
+            </AnimatedSection>
+          ))}
+        </div>
+
+        {/* Bottom border decoration */}
+        <div className="border-t border-orange-500 mt-16"></div>
+      </div>
+    </section>
+    </AnimatedSection>
+  );
+}
+
                   </div>
                 </div>
                 
