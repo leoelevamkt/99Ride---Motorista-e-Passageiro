@@ -45,76 +45,76 @@ export default function BlogSection() {
   return (
     <AnimatedSection animation="fadeIn">
       <section className="bg-white py-16 lg:py-24">
-      <div className="container mx-auto px-6 lg:px-16">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-5xl font-bold text-black mb-8">
-            Veja nossas últimas <span className="bg-yellow-400 px-2 py-1 rounded">postagens</span>
-          </h2>
-          
-          <button className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-yellow-300 transition-colors group">
-            <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
-            Acesse o blog
-          </button>
-        </div>
+        <div className="container mx-auto px-6 lg:px-16">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-5xl font-bold text-black mb-8">
+              Veja nossas últimas <span className="bg-yellow-400 px-2 py-1 rounded">postagens</span>
+            </h2>
+            
+            <button className="bg-yellow-400 text-black px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center gap-3 hover:bg-yellow-300 transition-colors group">
+              <ArrowUpRight className="w-5 h-5 group-hover:rotate-45 transition-transform" />
+              Acesse o blog
+            </button>
+          </div>
 
-        {/* Border decoration */}
-        <div className="border-t border-orange-500 mb-16"></div>
+          {/* Border decoration */}
+          <div className="border-t border-orange-500 mb-16"></div>
 
-        {/* Blog posts grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {posts.map((post) => (
-            <AnimatedSection
-              key={post.id}
-              animation="slideUp"
-              delay={post.id * 100}
-            >
-              <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group cursor-pointer">
-                <div className="relative overflow-hidden">
-                  <LazyImage 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm px-3 py-1 rounded-full">
-                    <span className="text-sm font-semibold text-gray-800">{post.category}</span>
-                  </div>
-                </div>
-              
-                <div className="p-6">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Calendar className="w-4 h-4" />
-                      {post.date}
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-orange-500">
-                      <Tag className="w-4 h-4" />
-                      {post.tag}
+          {/* Blog posts grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {posts.map((post) => (
+              <AnimatedSection
+                key={post.id}
+                animation="slideUp"
+                delay={post.id * 100}
+              >
+                <article className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 group cursor-pointer">
+                  <div className="relative overflow-hidden">
+                    <LazyImage 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-48 group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-4 left-4 bg-white bg-opacity-90 backdrop-blur-sm px-3 py-1 rounded-full">
+                      <span className="text-sm font-semibold text-gray-800">{post.category}</span>
                     </div>
                   </div>
-                  
-                  <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-orange-500 transition-colors">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {post.description}
-                  </p>
-                  
-                  <button className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors inline-flex items-center gap-1 group-hover:gap-2">
-                    Ler mais 
-                    <ArrowUpRight className="w-4 h-4 transition-all" />
-                  </button>
-                </div>
-              </article>
-            </AnimatedSection>
-          ))}
-        </div>
+                
+                  <div className="p-6">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <Calendar className="w-4 h-4" />
+                        {post.date}
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-orange-500">
+                        <Tag className="w-4 h-4" />
+                        {post.tag}
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-black mb-3 leading-tight group-hover:text-orange-500 transition-colors">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      {post.description}
+                    </p>
+                    
+                    <button className="text-orange-500 font-semibold text-sm hover:text-orange-600 transition-colors inline-flex items-center gap-1 group-hover:gap-2">
+                      Ler mais 
+                      <ArrowUpRight className="w-4 h-4 transition-all" />
+                    </button>
+                  </div>
+                </article>
+              </AnimatedSection>
+            ))}
+          </div>
 
-        {/* Bottom border decoration */}
-        <div className="border-t border-orange-500 mt-16"></div>
-      </div>
-    </section>
+          {/* Bottom border decoration */}
+          <div className="border-t border-orange-500 mt-16"></div>
+        </div>
+      </section>
     </AnimatedSection>
   );
 }
